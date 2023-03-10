@@ -1,0 +1,4 @@
+rootProject.name = 'pet-clinic'
+include 'pc-api'
+include 'pc-db'
+include 'pc-impl'
