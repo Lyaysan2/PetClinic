@@ -1,0 +1,224 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="001" author="Lyaysan">
+        <createTable tableName="users">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_user"/>
+            </column>
+            <column name="first_name" type="VARCHAR(64)"/>
+            <column name="last_name" type="VARCHAR(64)"/>
+            <column name="email" type="VARCHAR(64)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="user_email"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="VARCHAR(12)"/>
+            <column name="role" type="varchar(32)"/>
+            <column name="state" type="varchar(32)"/>
+            <column name="refresh_token_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="002" author="Lyaysan">
+        <createTable tableName="appointment">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_appointment"/>
+            </column>
+            <column name="user_id" type="uuid"/>
+            <column name="pet_id" type="uuid"/>
+            <column name="doctor_id" type="uuid"/>
+            <column name="service_id" type="uuid"/>
+            <column name="time_slot_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="003" author="Lyaysan">
+        <createTable tableName="service">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_service"/>
+            </column>
+            <column name="department_id" type="uuid"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="price" type="float"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="004" author="Lyaysan">
+        <createTable tableName="pet">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_pet"/>
+            </column>
+            <column name="type_id" type="uuid"/>
+            <column name="name" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="005" author="Lyaysan">
+        <createTable tableName="user_pet">
+            <column name="user_id" type="uuid"/>
+            <column name="pet_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="006" author="Lyaysan">
+        <createTable tableName="animal_type">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_animal_type"/>
+            </column>
+            <column name="name" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="007" author="Lyaysan">
+        <createTable tableName="department">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_department"/>
+            </column>
+            <column name="name" type="VARCHAR(64)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="008" author="Lyaysan">
+        <createTable tableName="doctor">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_doctor"/>
+            </column>
+            <column name="first_name" type="VARCHAR(64)"/>
+            <column name="last_name" type="VARCHAR(64)"/>
+            <column name="middle_name" type="VARCHAR(64)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="department_id" type="uuid"/>
+            <column name="job_title" type="VARCHAR(255)"/>
+            <column name="photo_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="009" author="Lyaysan">
+        <createTable tableName="time_slot">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_time_slot"/>
+            </column>
+            <column name="date" type="timestamp without time zone"/>
+            <column name="start_time" type="timestamp without time zone"/>
+            <column name="end_time" type="timestamp without time zone"/>
+            <column name="is_booked" type="boolean"/>
+            <column name="doctor_id" type="uuid"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="010" author="Lyaysan">
+        <createTable tableName="file_info">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_file_info"/>
+            </column>
+            <column name="original_file_name" type="VARCHAR(255)"/>
+            <column name="file_mongo_id" type="VARCHAR(255)"/>
+            <column name="size" type="bigint"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="011" author="Lyaysan">
+        <createTable tableName="refresh_token">
+            <column name="id" type="uuid"
+                    defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
+                <constraints primaryKey="true" primaryKeyName="pk_cc_refresh_token"/>
+            </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
+            <column name="expiry_date" type="timestamp without time zone"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="012" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="appointment" baseColumnNames="user_id" constraintName="appointment_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="013" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="appointment" baseColumnNames="pet_id" constraintName="appointment_pet_id"
+                                 referencedTableName="pet"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="014" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="appointment" baseColumnNames="doctor_id" constraintName="appointment_doctor_id"
+                                 referencedTableName="doctor"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="015" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="appointment" baseColumnNames="service_id" constraintName="appointment_service_id"
+                                 referencedTableName="service"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="016" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="appointment" baseColumnNames="time_slot_id" constraintName="appointment_time_slot_id"
+                                 referencedTableName="time_slot"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="017" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="user_pet" baseColumnNames="user_id" constraintName="user_pet_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="018" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="user_pet" baseColumnNames="pet_id" constraintName="user_pet_pet_id"
+                                 referencedTableName="pet"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="019" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="pet" baseColumnNames="type_id" constraintName="pet_type_id"
+                                 referencedTableName="animal_type"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="020" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="service" baseColumnNames="department_id" constraintName="service_department_id"
+                                 referencedTableName="department"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="021" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="doctor" baseColumnNames="department_id" constraintName="doctor_department_id"
+                                 referencedTableName="department"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="022" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="doctor" baseColumnNames="photo_id" constraintName="doctor_photo_id"
+                                 referencedTableName="file_info"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="023" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="time_slot" baseColumnNames="doctor_id" constraintName="time_slot_doctor_id"
+                                 referencedTableName="doctor"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="024" author="Lyaysan">
+        <addForeignKeyConstraint baseTableName="users" baseColumnNames="refresh_token_id"
+                                 constraintName="users_refresh_token_id"
+                                 referencedTableName="refresh_token"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
