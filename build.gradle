@@ -48,7 +48,7 @@ subprojects {
 //        implementation 'org.apache.commons:commons-lang3'
 //        implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 //        implementation "org.springframework.data:spring-data-commons:3.0.1"
-//        implementation 'org.hibernate.orm:hibernate-core'
+        implementation 'org.hibernate.orm:hibernate-core'
 
     }
 }
