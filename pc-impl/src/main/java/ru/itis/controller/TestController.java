@@ -13,7 +13,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class TestController implements TestApi {
 
-    private static PetRepository petRepository;
+    private final PetRepository petRepository;
 
     @Override
     public String test() {
