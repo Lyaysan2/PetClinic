@@ -7,8 +7,10 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.liquibase:liquibase-gradle-plugin:2.0.0"
     }
 }
+apply plugin: 'org.liquibase.gradle'
 
 allprojects {
     group = 'ru.itis'
@@ -52,6 +54,7 @@ subprojects {
 
     }
 }
+
 configurations.all {
     resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
