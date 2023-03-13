@@ -1,0 +1,1 @@
+INSERT INTO pet (id, name) VALUES ('decd23c3-323e-0146-2303-96e6f043fa18', 'Teddy');

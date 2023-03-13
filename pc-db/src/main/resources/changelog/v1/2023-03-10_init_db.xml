@@ -9,6 +9,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_user"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="first_name" type="VARCHAR(64)"/>
             <column name="last_name" type="VARCHAR(64)"/>
             <column name="email" type="VARCHAR(64)">
@@ -30,6 +31,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_appointment"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="user_id" type="uuid"/>
             <column name="pet_id" type="uuid"/>
             <column name="doctor_id" type="uuid"/>
@@ -44,6 +46,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_service"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="department_id" type="uuid"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="price" type="float"/>
@@ -57,6 +60,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_pet"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="type_id" type="uuid"/>
             <column name="name" type="VARCHAR(64)"/>
         </createTable>
@@ -75,6 +79,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_animal_type"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="name" type="VARCHAR(64)"/>
         </createTable>
     </changeSet>
@@ -85,6 +90,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_department"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="name" type="VARCHAR(64)"/>
         </createTable>
     </changeSet>
@@ -95,6 +101,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_doctor"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="first_name" type="VARCHAR(64)"/>
             <column name="last_name" type="VARCHAR(64)"/>
             <column name="middle_name" type="VARCHAR(64)"/>
@@ -111,6 +118,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_time_slot"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="date" type="timestamp without time zone"/>
             <column name="start_time" type="timestamp without time zone"/>
             <column name="end_time" type="timestamp without time zone"/>
@@ -125,6 +133,7 @@
                     defaultValueComputed="md5(random()::text || clock_timestamp()::text)::uuid">
                 <constraints primaryKey="true" primaryKeyName="pk_cc_file_info"/>
             </column>
+            <column name="create_date" type="timestamp without time zone" defaultValueComputed="NOW()"/>
             <column name="original_file_name" type="VARCHAR(255)"/>
             <column name="file_mongo_id" type="VARCHAR(255)"/>
             <column name="size" type="bigint"/>
