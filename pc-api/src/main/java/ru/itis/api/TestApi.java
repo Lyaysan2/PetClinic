@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @RequestMapping("/api/test")
 public interface TestApi {
 
-    @GetMapping()
+    @GetMapping("/db")
     @ResponseStatus(HttpStatus.OK)
     String test();
+
+    @GetMapping("/jwt")
+    @ResponseStatus(HttpStatus.OK)
+    String testJwt();
 }

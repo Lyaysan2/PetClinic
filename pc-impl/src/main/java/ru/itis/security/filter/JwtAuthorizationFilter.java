@@ -20,8 +20,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-//@RequiredArgsConstructor
-//@Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -33,6 +31,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private static final String[] PERMIT_ALL = {
             "/api/auth",
             "/api/token",
+            "/api/test/db",
             "/v3/api-docs",
             "swagger-ui",
             "account-swagger",

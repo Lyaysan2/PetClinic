@@ -30,13 +30,12 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-//@RequiredArgsConstructor
 public class JwtSecurityConfiguration {
 
     private static final String[] PERMIT_ALL = {
             "/api/auth/**",
             "/api/token/**",
-//            "/api/test",
+            "/api/test/db",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html",
@@ -48,9 +47,6 @@ public class JwtSecurityConfiguration {
     @Autowired
     private AccountUserDetailsService userDetailsService;
 
-//    @Autowired
-//    private JwtAuthorizationFilter jwtAuthorizationFilter;
-
     @Bean
     public JwtAuthorizationFilter jwtAuthorizationFilter(){
         return new JwtAuthorizationFilter();
@@ -60,22 +56,6 @@ public class JwtSecurityConfiguration {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-//    @Override
-//    public void configure(WebSecurity web) {
-//        web.ignoring().antMatchers(IGNORE);
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-//    }
-//
-//    @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
 
     @Bean
     public AuthenticationManager authenticationManager(
