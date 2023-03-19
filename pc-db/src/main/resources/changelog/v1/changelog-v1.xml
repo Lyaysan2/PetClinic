@@ -8,5 +8,9 @@
 
     <include file="2023-03-10_init_db.xml" relativeToChangelogFile="true"/>
     <include file="sql/2023-03-13_insert_pet_example.sql" relativeToChangelogFile="true"/>
+    <include file="sql/2023-03-18_insert_department.sql" relativeToChangelogFile="true"/>
+    <include file="2023-03-18_update_doctor.xml" relativeToChangelogFile="true"/>
+    <include file="sql/2023-03-18_insert_doctor.sql" relativeToChangelogFile="true"/>
+    <include file="sql/2023-03-19_insert_service.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

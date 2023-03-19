@@ -31,7 +31,8 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private static final String[] PERMIT_ALL = {
             "/api/auth",
             "/api/token",
-            "/api/test/db",
+            "/api/department",
+            "/api/doctor",
             "/v3/api-docs",
             "swagger-ui",
             "account-swagger",
