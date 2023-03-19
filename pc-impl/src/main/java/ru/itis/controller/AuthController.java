@@ -7,7 +7,9 @@ import ru.itis.dto.request.LoginRequest;
 import ru.itis.dto.request.SignUpRequest;
 import ru.itis.dto.response.TokenCoupleResponse;
 import ru.itis.service.AuthService;
+import ru.itis.service.DepartmentService;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -25,4 +27,11 @@ public class AuthController implements AuthApi {
     public TokenCoupleResponse login(LoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
+
+    private final DepartmentService departmentService;
+//
+//    @Override
+//    public List<String> getAllDirection() {
+//        return departmentService.getAllDirection();
+//    }
 }
