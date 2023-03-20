@@ -71,7 +71,7 @@ public class JwtSecurityConfiguration {
                 .authorizeHttpRequests()
                 .anyRequest().authenticated()
                 .and()
-                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .cors()
                 .and()
                 .csrf().disable()
                 .formLogin().disable()
