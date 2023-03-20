@@ -48,10 +48,6 @@ public class UserEntity extends AbstractEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
     private Set<AppointmentEntity> appointments;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
-    @JoinTable(name = "user_pet",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "pet_id", referencedColumnName = "id")}
-    )
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
     private Set<PetEntity> pets;
 }

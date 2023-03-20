@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="001" author="Lyaysan">
+        <dropTable tableName="user_pet" cascadeConstraints="true"/>
+    </changeSet>
+
+    <changeSet id="002" author="Lyaysan">
+        <addColumn tableName="pet">
+            <column name="user_id" type="uuid"/>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="pet" baseColumnNames="user_id" constraintName="pet_user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

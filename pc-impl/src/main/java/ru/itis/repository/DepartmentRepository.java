@@ -7,5 +7,4 @@ import java.util.List;
 import java.util.UUID;
 
 public interface DepartmentRepository extends JpaRepository<DepartmentEntity, UUID> {
-    List<DepartmentEntity> findAllByOrderByName();
 }
