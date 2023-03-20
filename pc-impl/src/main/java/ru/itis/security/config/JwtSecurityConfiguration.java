@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.firewall.*;
+import org.springframework.web.cors.CorsConfiguration;
 import ru.itis.security.details.AccountUserDetailsService;
 import ru.itis.security.filter.JwtAuthorizationFilter;
 
@@ -70,7 +71,8 @@ public class JwtSecurityConfiguration {
                 .authorizeHttpRequests()
                 .anyRequest().authenticated()
                 .and()
-                .cors().disable()
+                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and()
                 .csrf().disable()
                 .formLogin().disable()
                 .httpBasic().disable()
