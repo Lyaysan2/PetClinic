@@ -22,4 +22,6 @@ public interface UserService {
     UUID saveUser(UserEntity userEntity);
 
     UserResponse getUserResponse(String email);
+
+    UserEntity getById(UUID id);
 }

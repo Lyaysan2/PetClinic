@@ -70,4 +70,9 @@ public class UserServiceImpl implements UserService {
         return userMapper.toTokenInfoResponse(getByEmail(email));
     }
 
+    @Override
+    public UserEntity getById(UUID id) {
+        return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
+    }
+
 }

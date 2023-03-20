@@ -12,5 +12,7 @@
     <include file="2023-03-18_update_doctor.xml" relativeToChangelogFile="true"/>
     <include file="sql/2023-03-18_insert_doctor.sql" relativeToChangelogFile="true"/>
     <include file="sql/2023-03-19_insert_service.sql" relativeToChangelogFile="true"/>
+    <include file="2023-03-20_update_user_pet.xml" relativeToChangelogFile="true"/>
+    <include file="sql/2023-03-20_insert_animal_type.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

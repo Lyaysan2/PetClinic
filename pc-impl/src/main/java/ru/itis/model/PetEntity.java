@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -25,4 +26,8 @@ public class PetEntity extends AbstractEntity {
 
     @OneToMany(mappedBy = "pet", fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
     private Set<AppointmentEntity> appointments;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 }

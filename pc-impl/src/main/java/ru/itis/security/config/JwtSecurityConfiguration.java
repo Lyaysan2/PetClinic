@@ -27,8 +27,9 @@ public class JwtSecurityConfiguration {
     private static final String[] PERMIT_ALL = {
             "/api/auth/**",
             "/api/token/**",
-            "/api/department",
-            "/api/doctor",
+            "/api/department/**",
+            "/api/doctor/**",
+            "/api/pet/type",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html",
