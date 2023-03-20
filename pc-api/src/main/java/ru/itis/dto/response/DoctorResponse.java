@@ -7,12 +7,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.UUID;
+
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(description = "Full name of doctors")
 public class DoctorResponse {
+
+    @Schema(description = "Doctor id", example = "UUID")
+    private UUID id;
 
     @Schema(description = "Doctor's first name", example = "Илья")
     private String firstName;

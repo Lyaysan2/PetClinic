@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface DepartmentMapper {
 
-    @Mapping(target = "name", source = "departmentEntity.name")
+//    @Mapping(target = "name", source = "departmentEntity.name")
     @Mapping(target = "count", expression = "java(departmentEntity.getServices().size())")
     DepartmentResponse toResponse(DepartmentEntity departmentEntity);
 
