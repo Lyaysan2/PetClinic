@@ -31,6 +31,7 @@ public class JwtSecurityConfiguration {
             "/api/department/**",
             "/api/doctor/**",
             "/api/pet/type",
+            "/api/user/**",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html",

@@ -34,6 +34,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             "/api/department",
             "/api/doctor",
             "/api/pet/type",
+            "/api/user",
             "/v3/api-docs",
             "swagger-ui",
             "account-swagger",

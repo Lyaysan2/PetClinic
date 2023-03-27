@@ -2,10 +2,12 @@ package ru.itis.service;
 
 import ru.itis.dto.request.LoginRequest;
 import ru.itis.dto.request.SignUpRequest;
+import ru.itis.dto.response.PetResponse;
 import ru.itis.dto.response.UserResponse;
 import ru.itis.dto.response.UserTokenResponse;
 import ru.itis.model.UserEntity;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,4 +26,6 @@ public interface UserService {
     UserResponse getUserResponse(String email);
 
     UserEntity getById(UUID id);
+
+    List<PetResponse> getAllPet(UUID userId);
 }

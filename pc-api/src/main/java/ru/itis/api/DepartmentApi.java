@@ -58,7 +58,4 @@ public interface DepartmentApi {
     @ResponseStatus(HttpStatus.OK)
     List<DoctorResponse> getDoctorsByDepartment(@Parameter(description = "department id") @PathVariable("department-id") UUID departmentId);
 
-//    @GetMapping("/jwt")
-//    @ResponseStatus(HttpStatus.OK)
-//    String testJwt();
 }
