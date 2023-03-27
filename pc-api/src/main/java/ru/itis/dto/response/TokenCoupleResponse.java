@@ -15,10 +15,10 @@ import java.time.Instant;
 @Schema(description = "access, refresh token response")
 public class TokenCoupleResponse {
 
-    @Schema(description = "access token", required = true)
+    @Schema(description = "access token")
     private String accessToken;
 
-    @Schema(description = "refresh token", required = true)
+    @Schema(description = "refresh token")
     private String refreshToken;
 
     @Schema(description = "access token expiration date")

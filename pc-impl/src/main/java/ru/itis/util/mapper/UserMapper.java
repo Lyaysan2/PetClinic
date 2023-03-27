@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValueCheckStrategy;
 import ru.itis.dto.request.SignUpRequest;
+import ru.itis.dto.response.UserInfoResponse;
 import ru.itis.dto.response.UserResponse;
 import ru.itis.dto.response.UserTokenResponse;
 import ru.itis.model.UserEntity;
@@ -18,4 +19,6 @@ public interface UserMapper {
     UserTokenResponse toTokenResponse(UserEntity user);
 
     UserResponse toTokenInfoResponse(UserEntity user);
+
+    UserInfoResponse toInfoResponse(UserEntity user);
 }
