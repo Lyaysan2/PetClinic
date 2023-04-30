@@ -16,4 +16,6 @@ public interface PetService {
     UUID savePet(PetRequest petRequest);
 
     List<PetResponse> getAllPetByUser(UserEntity user);
+
+    PetEntity getById(UUID id);
 }

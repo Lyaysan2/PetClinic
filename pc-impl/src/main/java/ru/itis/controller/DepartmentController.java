@@ -6,11 +6,7 @@ import ru.itis.api.DepartmentApi;
 import ru.itis.dto.response.DepartmentResponse;
 import ru.itis.dto.response.DoctorResponse;
 import ru.itis.dto.response.ServiceResponse;
-import ru.itis.repository.DepartmentRepository;
-import ru.itis.repository.PetRepository;
-import ru.itis.repository.ServiceRepository;
 import ru.itis.service.DepartmentService;
-import ru.itis.util.mapper.DepartmentMapper;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,9 +31,4 @@ public class DepartmentController implements DepartmentApi {
     public List<DoctorResponse> getDoctorsByDepartment(UUID departmentId) {
         return departmentService.getDoctorsByDepartment(departmentId);
     }
-
-//    @Override
-//    public String testJwt() {
-//        return "JWT success";
-//    }
 }

@@ -11,10 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.itis.dto.response.DepartmentResponse;
-import ru.itis.dto.response.DoctorInfoResponse;
-import ru.itis.dto.response.DoctorResponse;
-import ru.itis.dto.response.ServiceResponse;
+import ru.itis.dto.response.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -57,5 +54,4 @@ public interface DepartmentApi {
     @GetMapping(value = "/{department-id}/doctor", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     List<DoctorResponse> getDoctorsByDepartment(@Parameter(description = "department id") @PathVariable("department-id") UUID departmentId);
-
 }

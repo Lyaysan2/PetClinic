@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '3.0.1'
+        springBootVersion = '2.4.3'
     }
     repositories {
         mavenCentral()
@@ -28,8 +28,8 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.springframework.boot'
 
-    targetCompatibility = JavaVersion.VERSION_17
-    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
     bootJar.archiveFileName = "${project.name}.jar"
 
     configurations {
@@ -45,13 +45,14 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         compileOnly 'org.projectlombok:lombok'
-        implementation 'org.postgresql:postgresql:42.5.1'
+        implementation 'org.postgresql:postgresql:42.3.3'
         annotationProcessor 'org.projectlombok:lombok'
         implementation 'org.apache.commons:commons-lang3'
         implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
-        implementation "org.springframework.data:spring-data-commons:3.0.1"
-        implementation 'org.hibernate.orm:hibernate-core'
-        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+        implementation "org.springframework.data:spring-data-commons:2.4.5"
+        implementation 'org.hibernate:hibernate-core'
+        implementation "org.springdoc:springdoc-openapi-ui:1.6.4"
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
     }
 }
 

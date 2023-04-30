@@ -1,10 +1,14 @@
 package ru.itis.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -16,7 +20,7 @@ import java.time.Instant;
 @Table(name = "time_slot")
 public class TimeSlotEntity extends AbstractEntity {
 
-    private Instant date;
+    private LocalDate date;
 
     @Column(name = "start_time")
     private Instant startTime;

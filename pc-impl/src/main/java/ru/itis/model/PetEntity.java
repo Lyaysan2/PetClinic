@@ -1,11 +1,10 @@
 package ru.itis.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.*;
 import java.util.Set;
-import java.util.UUID;
 
 @Getter
 @Setter

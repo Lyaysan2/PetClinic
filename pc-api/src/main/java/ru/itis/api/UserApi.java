@@ -10,14 +10,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
+import ru.itis.dto.request.AppointmentRequest;
+import ru.itis.dto.response.AppointmentInfoResponse;
 import ru.itis.dto.response.DoctorInfoResponse;
 import ru.itis.dto.response.PetResponse;
 import ru.itis.dto.response.UserInfoResponse;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,4 +50,17 @@ public interface UserApi {
     @ResponseStatus(HttpStatus.OK)
     UserInfoResponse getUserInfo(@Parameter(description = "user id") @PathVariable("user-id") UUID userId);
 
+    @Operation(summary = "Make appointment")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "appointment created successfully", content = {
+                    @Content(mediaType = "application/json", schema =
+                    @Schema(implementation = AppointmentInfoResponse.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "appointment request validation failed",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "not found", content = @Content)
+    })
+    @GetMapping(value = "/appointment", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    AppointmentInfoResponse makeAppointment(@Valid @RequestBody AppointmentRequest appointmentRequest);
 }

@@ -1,9 +1,5 @@
 package ru.itis.security.filter;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,10 +12,16 @@ import ru.itis.service.JwtTokenService;
 import ru.itis.util.http.HttpRequestUtil;
 import ru.itis.util.http.HttpResponseUtil;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+@RequiredArgsConstructor
+@Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -29,6 +31,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
 
     private static final String[] PERMIT_ALL = {
+//            "/api/register",
             "/api/auth",
             "/api/token",
             "/api/department",

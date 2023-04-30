@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.itis.dto.request.PetRequest;
 import ru.itis.dto.response.AnimalTypeResponse;
 import ru.itis.dto.response.PetResponse;
+import ru.itis.exception.PetNotFoundException;
 import ru.itis.exception.UserNotFoundException;
 import ru.itis.model.AnimalTypeEntity;
 import ru.itis.model.PetEntity;
@@ -51,5 +52,10 @@ public class PetServiceImpl implements PetService {
     @Override
     public List<PetResponse> getAllPetByUser(UserEntity user) {
         return petMapper.toListResponse(petRepository.getAllByUser(user));
+    }
+
+    @Override
+    public PetEntity getById(UUID id) {
+        return petRepository.findById(id).orElseThrow(PetNotFoundException::new);
     }
 }

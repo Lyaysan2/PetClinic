@@ -1,11 +1,11 @@
 package ru.itis.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import ru.itis.dto.enums.Role;
 import ru.itis.dto.enums.State;
 
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -14,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@EqualsAndHashCode(exclude = {"appointments", "pets"}, callSuper = false)
+@EqualsAndHashCode(exclude = {"refreshToken", "appointments", "pets"}, callSuper = false)
 @Table(name = "users")
 public class UserEntity extends AbstractEntity {
 

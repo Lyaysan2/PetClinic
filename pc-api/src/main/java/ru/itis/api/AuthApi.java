@@ -36,6 +36,7 @@ public interface AuthApi {
     UUID signUp(@Valid @RequestBody SignUpRequest signUpRequest);
 
 
+    //TODO: 400
     @Operation(summary = "Login user")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User logged in", content = {
@@ -48,15 +49,4 @@ public interface AuthApi {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     TokenCoupleResponse login(@Valid @RequestBody LoginRequest loginRequest);
-
-//    @Operation(summary = "All department list")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "List of department received", content = {
-//                    @Content(mediaType = "application/json", array =
-//                    @ArraySchema(schema = @Schema(implementation = DepartmentResponse.class)))
-//            })
-//    })
-//    @GetMapping(value = "/d", produces = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseStatus(HttpStatus.OK)
-//    List<String> getAllDirection();
 }

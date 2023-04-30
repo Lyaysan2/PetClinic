@@ -1,8 +1,9 @@
 package ru.itis.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+
+import javax.persistence.*;
 
 
 @Getter

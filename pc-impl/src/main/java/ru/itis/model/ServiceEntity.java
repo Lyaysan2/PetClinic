@@ -1,9 +1,9 @@
 package ru.itis.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -18,7 +18,7 @@ public class ServiceEntity extends AbstractEntity {
 
     private String name;
 
-    private Float price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE, CascadeType.MERGE})
     @JoinColumn(name = "department_id")
