@@ -13,7 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.dto.request.AppointmentRequest;
 import ru.itis.dto.response.AppointmentInfoResponse;
-import ru.itis.dto.response.DoctorInfoResponse;
 import ru.itis.dto.response.PetResponse;
 import ru.itis.dto.response.UserInfoResponse;
 

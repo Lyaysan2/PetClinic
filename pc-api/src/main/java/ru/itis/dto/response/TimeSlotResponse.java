@@ -3,10 +3,7 @@ package ru.itis.dto.response;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.UUID;
 
 @Data

@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.dto.request.PetRequest;
 import ru.itis.dto.response.AnimalTypeResponse;
-import ru.itis.dto.response.DoctorResponse;
 
 import javax.validation.Valid;
 import java.util.List;
