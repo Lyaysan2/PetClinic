@@ -3,7 +3,6 @@ package ru.itis.util.mapper;
 import org.mapstruct.*;
 import ru.itis.dto.response.DoctorInfoResponse;
 import ru.itis.dto.response.DoctorResponse;
-import ru.itis.dto.response.TimeSlotResponse;
 import ru.itis.model.DoctorEntity;
 
 import java.util.List;
@@ -20,9 +19,4 @@ public interface DoctorMapper {
 
     @Mapping(target = "departmentId", source = "doctor.department.id")
     DoctorInfoResponse toInfoResponse(DoctorEntity doctor);
-
-//    @Mapping(target = "date", source = "doctor.department.id")
-//    @Mapping(target = "date", source = "doctor.department.id")
-//    @Mapping(target = "date", source = "doctor.department.id")
-//    TimeSlotResponse toTimeResponse(DoctorEntity doctor);
 }
