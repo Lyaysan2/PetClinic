@@ -11,6 +11,10 @@ import ru.itis.service.*;
 
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -68,6 +72,28 @@ public class AppointmentServiceImpl implements AppointmentService {
                 .servicePrice(service.getPrice())
                 .appointmentDate(timeSlot.getDate())
                 .startTime(timeSlot.getStartTime().atZone(ZoneId.of("GMT+3")).toLocalTime()
+                        .format(DateTimeFormatter.ofPattern("HH:mm")))
+                .build();
+    }
+
+    @Override
+    public List<AppointmentInfoResponse> getAppointmentsByUser(UUID userId) {
+        UserEntity user = userService.getById(userId);
+        List<AppointmentEntity> appointmentEntityList = appointmentRepository.findAllByUser(user);
+        return appointmentEntityList.stream().sorted(Comparator.comparing(a -> a.getTimeSlot().getStartTime()))
+                .map(this::getAppointmentInfoResponse).collect(Collectors.toList());
+
+    }
+
+    private AppointmentInfoResponse getAppointmentInfoResponse(AppointmentEntity appointmentEntity) {
+        return AppointmentInfoResponse.builder()
+                .petName(appointmentEntity.getPet().getName())
+                .fullDoctorName(String.format("%s %s %s", appointmentEntity.getDoctor().getLastName(),
+                        appointmentEntity.getDoctor().getFirstName(), appointmentEntity.getDoctor().getMiddleName()))
+                .serviceName(appointmentEntity.getService().getName())
+                .servicePrice(appointmentEntity.getService().getPrice())
+                .appointmentDate(appointmentEntity.getTimeSlot().getDate())
+                .startTime(appointmentEntity.getTimeSlot().getStartTime().atZone(ZoneId.of("GMT+3")).toLocalTime()
                         .format(DateTimeFormatter.ofPattern("HH:mm")))
                 .build();
     }

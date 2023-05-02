@@ -60,7 +60,20 @@ public interface UserApi {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "not found", content = @Content)
     })
-    @GetMapping(value = "/appointment", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = "/appointment", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
     AppointmentInfoResponse makeAppointment(@Valid @RequestBody AppointmentRequest appointmentRequest);
+
+    @Operation(summary = "Make appointment")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "List of appointments received", content = {
+                    @Content(mediaType = "application/json", array =
+                    @ArraySchema(schema = @Schema(implementation = AppointmentInfoResponse.class)))
+            }),
+            @ApiResponse(responseCode = "404", description = "not found", content = @Content)
+    })
+    @GetMapping(value = "/{user-id}/appointment", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    List<AppointmentInfoResponse> getAppointments(@Parameter(description = "user id") @PathVariable("user-id") UUID userId);
 }

@@ -34,4 +34,10 @@ public class UserController implements UserApi {
     public AppointmentInfoResponse makeAppointment(AppointmentRequest appointmentRequest) {
         return appointmentService.makeAppointment(appointmentRequest);
     }
+
+    @Override
+    public List<AppointmentInfoResponse> getAppointments(UUID userId) {
+        return appointmentService.getAppointmentsByUser(userId);
+    }
+
 }
