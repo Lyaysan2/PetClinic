@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Pet API", description = "")
+@Tag(name = "Pet API", description = "animal types / create pet")
 @RequestMapping("/api/pet")
 public interface PetApi {
 

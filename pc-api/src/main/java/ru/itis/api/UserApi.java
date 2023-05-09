@@ -20,7 +20,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "User API", description = "get user pets, get user info")
+@Tag(name = "User API", description = "get user pets / get user info / make appointment / get all appointments by user")
 @RequestMapping("/api/user")
 public interface UserApi {
 

@@ -67,7 +67,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
         return AppointmentInfoResponse.builder()
                 .petName(pet.getName())
-                .fullDoctorName(String.format("%s %s %s", doctor.getLastName(), doctor.getFirstName(), doctor.getMiddleName()))
+                .fullDoctorName(String.format("%s %s %s", doctor.getFirstName(), doctor.getLastName(), doctor.getMiddleName()))
                 .serviceName(service.getName())
                 .servicePrice(service.getPrice())
                 .appointmentDate(timeSlot.getDate())
@@ -88,8 +88,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     private AppointmentInfoResponse getAppointmentInfoResponse(AppointmentEntity appointmentEntity) {
         return AppointmentInfoResponse.builder()
                 .petName(appointmentEntity.getPet().getName())
-                .fullDoctorName(String.format("%s %s %s", appointmentEntity.getDoctor().getLastName(),
-                        appointmentEntity.getDoctor().getFirstName(), appointmentEntity.getDoctor().getMiddleName()))
+                .fullDoctorName(String.format("%s %s %s", appointmentEntity.getDoctor().getFirstName(),
+                        appointmentEntity.getDoctor().getLastName(), appointmentEntity.getDoctor().getMiddleName()))
                 .serviceName(appointmentEntity.getService().getName())
                 .servicePrice(appointmentEntity.getService().getPrice())
                 .appointmentDate(appointmentEntity.getTimeSlot().getDate())

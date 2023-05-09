@@ -26,4 +26,7 @@ public class DoctorResponse {
 
     @Schema(description = "Doctor's middle name", example = "Максимович")
     private String middleName;
+
+    @Schema(description = "Doctor's photo id", example = "UUID")
+    private UUID photoId;
 }

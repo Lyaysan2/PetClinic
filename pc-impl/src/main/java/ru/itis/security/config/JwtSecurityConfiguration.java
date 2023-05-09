@@ -20,15 +20,13 @@ import ru.itis.security.filter.JwtAuthorizationFilter;
 @RequiredArgsConstructor
 public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    //todo appoint
     private static final String[] PERMIT_ALL = {
-//            "/api/register",
             "/api/auth/**",
             "/api/token/**",
             "/api/department/**",
             "/api/doctor/**",
             "/api/pet/type",
-            "/api/user/**",
+            "/api/files/**",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html/**",

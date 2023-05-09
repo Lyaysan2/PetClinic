@@ -19,7 +19,7 @@ import ru.itis.dto.response.*;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Doctor API", description = "get list of doctors / get doctor")
+@Tag(name = "Doctor API", description = "get doctor info / get doctor's times")
 @RequestMapping("/api/doctor")
 public interface DoctorApi {
 
@@ -39,7 +39,7 @@ public interface DoctorApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "List of doctors time received", content = {
                     @Content(mediaType = "application/json", array =
-                    @ArraySchema(schema = @Schema(implementation = DoctorResponse.class)))
+                    @ArraySchema(schema = @Schema(implementation = TimeSlotResponse.class)))
             }),
             @ApiResponse(responseCode = "404", description = "Doctor not found", content = @Content)
     })

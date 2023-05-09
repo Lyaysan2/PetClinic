@@ -16,7 +16,8 @@ import ru.itis.dto.response.*;
 import java.util.List;
 import java.util.UUID;
 
-@Tag(name = "Department API", description = "list of departments / list of services by department")
+@Tag(name = "Department API", description = "list of departments / list of services by department / " +
+        "list of doctors by department")
 @RequestMapping("/api/department")
 public interface DepartmentApi {
 

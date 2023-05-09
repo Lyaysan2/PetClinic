@@ -12,11 +12,17 @@ import java.util.List;
 public interface DoctorMapper {
 
     @Named(value = "toResponse")
+    @Mapping(target = "photoId", source = "doctor.photo.id")
+    @Mapping(target = "firstName", source = "doctor.lastName")
+    @Mapping(target = "lastName", source = "doctor.firstName")
     DoctorResponse toResponse(DoctorEntity doctor);
 
     @IterableMapping(qualifiedByName = "toResponse")
     List<DoctorResponse> toListResponse(List<DoctorEntity> doctorEntityList);
 
     @Mapping(target = "departmentId", source = "doctor.department.id")
+    @Mapping(target = "photoId", source = "doctor.photo.id")
+    @Mapping(target = "firstName", source = "doctor.lastName")
+    @Mapping(target = "lastName", source = "doctor.firstName")
     DoctorInfoResponse toInfoResponse(DoctorEntity doctor);
 }

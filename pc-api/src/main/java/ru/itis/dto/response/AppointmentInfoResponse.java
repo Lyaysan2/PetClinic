@@ -15,15 +15,21 @@ import java.time.LocalDate;
 @Schema(description = "Appointment info response")
 public class AppointmentInfoResponse {
 
+    @Schema(description = "pet name", example = "Мурзик")
     private String petName;
 
+    @Schema(description = "last + first + middle names", example = "Филиппов Николай Львович")
     private String fullDoctorName;
 
+    @Schema(description = "service name", example = "УЗИ сердца")
     private String serviceName;
 
+    @Schema(description = "service price", example = "2300")
     private Integer servicePrice;
 
+    @Schema(description = "appointment date", example = "2023-05-06")
     private LocalDate appointmentDate;
 
+    @Schema(description = "appointment time", example = "12:00")
     private String startTime;
 }

@@ -31,13 +31,12 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
 
     private static final String[] PERMIT_ALL = {
-//            "/api/register",
             "/api/auth",
             "/api/token",
+            "/api/files",
             "/api/department",
             "/api/doctor",
             "/api/pet/type",
-            "/api/user",
             "/v3/api-docs",
             "swagger-ui",
             "account-swagger",

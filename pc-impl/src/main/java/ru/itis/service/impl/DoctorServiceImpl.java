@@ -8,6 +8,7 @@ import ru.itis.dto.response.TimeSlotResponse;
 import ru.itis.exception.DoctorNotFoundException;
 import ru.itis.model.DepartmentEntity;
 import ru.itis.model.DoctorEntity;
+import ru.itis.model.FileInfoEntity;
 import ru.itis.model.TimeSlotEntity;
 import ru.itis.repository.DoctorRepository;
 import ru.itis.service.DoctorService;
@@ -52,6 +53,13 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public DoctorEntity getById(UUID id) {
         return doctorRepository.findById(id).orElseThrow(DoctorNotFoundException::new);
+    }
+
+    @Override
+    public void uploadDoctorPhoto(UUID doctorId, FileInfoEntity fileInfoEntity) {
+        DoctorEntity doctorEntity = getById(doctorId);
+        doctorEntity.setPhoto(fileInfoEntity);
+        doctorRepository.save(doctorEntity);
     }
 
     private TimeSlotResponse toTimeSlotResponse(TimeSlotEntity timeSlotEntity) {
