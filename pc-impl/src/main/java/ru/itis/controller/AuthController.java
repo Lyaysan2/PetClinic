@@ -1,6 +1,7 @@
 package ru.itis.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.api.AuthApi;
 import ru.itis.dto.request.LoginRequest;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class AuthController implements AuthApi {
 
     private final AuthService authService;

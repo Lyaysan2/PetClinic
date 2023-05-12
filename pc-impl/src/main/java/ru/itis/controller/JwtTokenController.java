@@ -1,6 +1,7 @@
 package ru.itis.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.api.JwtTokenApi;
 import ru.itis.dto.request.TokenCoupleDtoRequest;
@@ -10,6 +11,7 @@ import ru.itis.service.JwtTokenService;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class JwtTokenController implements JwtTokenApi {
 
     private final JwtTokenService jwtTokenService;

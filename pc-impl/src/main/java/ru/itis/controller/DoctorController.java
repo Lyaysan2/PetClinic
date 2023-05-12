@@ -1,6 +1,7 @@
 package ru.itis.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.api.DoctorApi;
 import ru.itis.dto.response.DoctorInfoResponse;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class DoctorController implements DoctorApi {
 
     private final DoctorService doctorService;

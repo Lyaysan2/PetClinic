@@ -1,6 +1,7 @@
 package ru.itis.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.api.UserApi;
 import ru.itis.dto.request.AppointmentRequest;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class UserController implements UserApi {
 
     private final UserService userService;
