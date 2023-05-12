@@ -42,6 +42,6 @@ public class SignUpRequest {
     private String repeatedPassword;
 
     @Schema(description = "user phone", example = "+79510654781", required = true)
-    @Pattern(regexp="\\d{12}", message = "PHONE_NUMBER_INVALID")
+    @Pattern(regexp="\\+\\d{11}", message = "PHONE_NUMBER_INVALID")
     private String phone;
 }

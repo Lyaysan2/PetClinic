@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class PasswordValidator implements ConstraintValidator<ValidPassword, Object> {
 
-    private static final String AT_LEAST_ONE_DIGIT = ".*[0-9]";
+    private static final String AT_LEAST_ONE_DIGIT = ".*[0-9]+.*";
 
     private static final String AT_LEAST_ONE_LOWER_CASE = ".*[a-z]+.*";
 
